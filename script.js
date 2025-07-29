@@ -146,3 +146,60 @@ console.log(myCompleteString);
 // or...
 myCompleteString = `My first name is ${myFirstName}`;
 console.log(myCompleteString);
+
+let someAdjective = "worthwile";
+let mySentence = "Learning to code is ";
+mySentence += someAdjective;
+
+// find length of string
+
+console.log(myFirstName);
+let myFirstNameLength = myFirstName.length;
+
+console.log(myFirstNameLength);
+
+// bracket notation
+firstLetterOfFirstName = myFirstName[0];
+console.log(firstLetterOfFirstName);
+
+console.log(myFirstName[2]);
+
+// find the last value in a string
+let lastLetterOfFirstName = myFirstName[myFirstName.length - 1];
+console.log(lastLetterOfFirstName);
+
+function wordBlanks(myNoun, myAdjective, myVerb, myAdverb) {
+  let result = "";
+
+  result += `The ${myAdjective} ${myNoun} ${myVerb} to the store ${myAdverb}`;
+
+  return result;
+}
+
+console.log(wordBlanks("dog", "big", "ran", "quickly"));
+console.log(wordBlanks("bike", "slow", "flew", "slowly"));
+
+let myArray = ["Josh", 32];
+let nestedArray = [
+  ["the universe", 42],
+  ["everything", 101010],
+];
+
+let newArray = [50, 60, 70];
+let myData = newArray[0]; // equals 50
+console.log(myData);
+
+newArray[1] = 45;
+
+console.log(newArray);
+
+let largeArray = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9],
+  [[10, 11, 12], 13, 14],
+];
+
+console.log(largeArray[0][0]); // logs 1
+
+console.log(largeArray[2][1]); // equals 8
