@@ -179,6 +179,8 @@ function wordBlanks(myNoun, myAdjective, myVerb, myAdverb) {
 console.log(wordBlanks("dog", "big", "ran", "quickly"));
 console.log(wordBlanks("bike", "slow", "flew", "slowly"));
 
+// arrays
+
 let myArray = ["Josh", 32];
 let nestedArray = [
   ["the universe", 42],
@@ -203,3 +205,70 @@ let largeArray = [
 console.log(largeArray[0][0]); // logs 1
 
 console.log(largeArray[2][1]); // equals 8
+
+let nextArray = ["Me", "Myself", "I"];
+console.log(nextArray);
+nextArray.push("Dog");
+console.log(nextArray);
+// removed last element
+let removedFromNextArray = nextArray.pop();
+console.log(removedFromNextArray);
+// removed first element
+let shiftFromNextArray = nextArray.shift();
+console.log(shiftFromNextArray);
+console.log(nextArray);
+// add element to start of array
+nextArray.unshift("Me");
+console.log(nextArray);
+
+// shopping list example
+let shoppinglist = [
+  ["Apples", 2],
+  ["Pasta", 1],
+  ["Cucumber", 1],
+  ["Onions", 4],
+];
+console.log(shoppinglist);
+
+// functions
+function myFirstFunction() {
+  console.log("Yo, world");
+}
+
+myFirstFunction();
+
+function myFunctionWithArgs(a, b) {
+  console.log(a - b);
+}
+
+myFunctionWithArgs(10, 3);
+
+// global scope - can be seen everywhere!
+let myGlobal = 10;
+
+function globalTestFunction() {
+  // local to this function!
+  let localScope = 5;
+  console.log(localScope);
+  let output = "";
+  if (typeof myGlobal != "undefined") {
+    output += `myGlobal: ${myGlobal}`;
+  }
+  console.log(output);
+}
+
+globalTestFunction();
+
+// local and global variables with the same name
+// local variable takes precedent over the global variable
+
+let outerWear = "T-shirt";
+
+function myOutfit() {
+  let outerWear = "Sweater";
+
+  return outerWear;
+}
+
+console.log(myOutfit()); // Sweater
+console.log(outerWear); // T-shirt
