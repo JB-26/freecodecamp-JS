@@ -249,3 +249,97 @@ let myMusic = [
 ];
 
 console.log(myMusic);
+
+let myStorage = {
+  car: {
+    inside: {
+      "glove box": "maps",
+      "passenger seat": "crumbs",
+    },
+    outside: {
+      boot: "empty",
+    },
+  },
+};
+
+let gloveBoxContents = myStorage.car.inside["glove box"];
+
+console.log(gloveBoxContents);
+
+let myPlants = [
+  {
+    type: "flowers",
+    list: ["rose", "tulip", "dandelion"],
+  },
+  {
+    type: "trees",
+    list: ["fir", "pine", "birch"],
+  },
+];
+
+let secondTree = myPlants[1].list[1];
+
+console.log(secondTree);
+
+let collection = {
+  2548: {
+    album: "Slippery when wet",
+    artist: "Bon Jovi",
+    tracks: ["Let it rock", "You give love a bad name"],
+  },
+  2468: {
+    album: 1999,
+    artist: "Prince",
+    tracks: [1999, "Little Red Corvette"],
+  },
+  1245: {
+    artist: "Robert Palmer",
+    tracks: [],
+  },
+  5439: {
+    album: "ABBA Gold",
+  },
+};
+
+let collectionCopy = JSON.parse(JSON.stringify(collection));
+
+function updateRecords(id, prop, value) {
+  if (value === "") {
+    delete collection[id][prop];
+  } else if (prop === "tracks") {
+    collection[id][prop] = collection[id][prop] || [];
+    collection[id][prop].push(value);
+  } else {
+    collection[id][prop] = value;
+  }
+  return collection;
+}
+
+console.log(updateRecords(5439, "artist", "ABBA"));
+console.log(updateRecords(2468, "tracks", "Test"));
+
+let myNewArray = [];
+
+let i = 0;
+while (i < 5) {
+  myNewArray.push(i);
+  i++;
+}
+
+console.log(myNewArray);
+
+let ourArray = [];
+
+for (let i = 0; i < 5; i++) {
+  ourArray.push(i);
+}
+
+console.log(ourArray);
+
+let oddArray = [];
+
+for (let num = 1; num < 10; num += 2) {
+  oddArray.push(num);
+}
+
+console.log(oddArray);
