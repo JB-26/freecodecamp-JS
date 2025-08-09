@@ -343,3 +343,91 @@ for (let num = 1; num < 10; num += 2) {
 }
 
 console.log(oddArray);
+
+let emptyArray = [];
+
+for (let i = 10; i > 0; i -= 2) {
+  emptyArray.push(i);
+}
+
+console.log(emptyArray);
+
+let ourNewArray = [9, 10, 11, 12];
+let ourNewTotal = 0;
+
+for (let i = 0; i < ourNewArray.length; i++) {
+  ourNewTotal += ourNewArray[i];
+}
+
+console.log(ourNewTotal);
+
+function multiplyAll(arr) {
+  let product = 1;
+
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr[i].length; j++) {
+      product *= arr[i][j];
+    }
+  }
+
+  return product;
+}
+
+let product = multiplyAll([
+  [1, 2],
+  [3, 4],
+  [5, 6, 7],
+]);
+
+console.log(product);
+
+let thisNewArray = [];
+let newNumber = 10;
+
+// run at least once before checking the condition
+do {
+  thisNewArray.push(newNumber);
+  newNumber++;
+} while (newNumber < 5);
+
+console.log(newNumber, thisNewArray);
+
+let contacts = [
+  {
+    firstName: "Akira",
+    lastName: "Laine",
+    number: "0000001",
+    likes: ["Pizza", "Coding", "Brownie Points"],
+  },
+  {
+    firstName: "Harry",
+    lastName: "Potter",
+    number: "0000002",
+    likes: ["Hogwarts", "Magic", "Hagrid"],
+  },
+  {
+    firstName: "Sherlock",
+    lastName: "Holmes",
+    number: "0000003",
+    likes: ["Intriguing cases", "Violin"],
+  },
+  {
+    firstName: "Kristian",
+    lastName: "Vos",
+    number: "unknown",
+    likes: ["JavaScript", "Gaming", "Foxes"],
+  },
+];
+
+function lookupProfile(name, prop) {
+  for (let i = 0; i < contacts.length; i++) {
+    if (contacts[i].firstName === name) {
+      return contacts[i][prop] || `No such property for ${name}`;
+    }
+  }
+  return "No such contact";
+}
+
+console.log(lookupProfile("Sherlock", "likes"));
+console.log(lookupProfile("Harry", "magic"));
+console.log(lookupProfile("Bill", "likes"));
