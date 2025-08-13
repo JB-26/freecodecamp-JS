@@ -155,3 +155,129 @@ const squareList = (arr) => {
 
 const squaredIntegers = squareList(realNumberArray);
 console.log(squaredIntegers);
+
+// if value isn't provided, use default
+const increment = (function () {
+  return function increment(number, value = 1) {
+    return number + value;
+  };
+})();
+
+console.log(increment(5, 2));
+console.log(increment(5));
+
+// converts everything passed into argument, into an array called args
+const sum = (function () {
+  return function sum(...args) {
+    return args.reduce((a, b) => a + b, 0);
+  };
+})();
+
+// now we can add an infinite amount of arguments
+console.log(sum(1, 2, 3));
+
+const arr1 = ["JAN", "FEB", "MAR", "APR", "MAY"];
+
+let arr2;
+
+//spread operator - makes the contents are different
+(function () {
+  arr2 = [...arr1];
+  arr1[0] = "potato";
+})();
+
+console.log(arr2);
+
+let voxel = {
+  x: 3.6,
+  y: 7.4,
+  z: 6.54,
+};
+
+//faster and simpler way of assigning variables the elements of an object
+// destructuring
+
+const { x: a, y: b, z: c } = voxel;
+
+const AVG_TEMPERATURES = {
+  today: 77.5,
+  tomorrow: 79,
+};
+
+function getTempOfTmrw(avgTemperatures) {
+  "use strict";
+
+  // get tomorrow from avgTemperatures object and assign it to tempOfTomorrow variable
+  const { tomorrow: tempOfTomorrow } = avgTemperatures;
+
+  return tempOfTomorrow;
+}
+
+console.log(getTempOfTmrw(AVG_TEMPERATURES));
+
+// nested objects
+
+const LOCAL_FORECAST = {
+  today: { min: 72, max: 83 },
+  tomorrow: { min: 73.3, max: 84.6 },
+};
+
+function getMaxofTmrw(forecast) {
+  "use strict";
+
+  const {
+    tomorrow: { max: maxOfTomorrow },
+  } = forecast;
+
+  return maxOfTomorrow;
+}
+
+console.log(getMaxofTmrw(LOCAL_FORECAST));
+
+// skips 3
+const [z, x, , y] = [1, 2, 3, 4, 5, 6];
+console.log(z, x, y);
+
+() => {
+  "use strict";
+  [a1, b1] = [b1, a1];
+};
+
+let a1 = 8;
+let b1 = 6;
+
+console.log(a1);
+console.log(b1);
+
+const source = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+function removeFirstTwo(list) {
+  // skip the first two elements, assign everything else to arr
+  const [, , ...arr] = list;
+
+  return arr;
+}
+
+const arr = removeFirstTwo(source);
+console.log(arr);
+console.log(source);
+
+const stats = {
+  max: 56.78,
+  standard_deviation: 4.34,
+  median: 34.54,
+  mode: 23.87,
+  min: -0.75,
+  average: 35.85,
+};
+
+const half = (function () {
+  // when the object is passed in, it's destructured and only gets max and min
+  // commonly used with API calls, get exactly what you need
+  return function half({ max, min }) {
+    return (max + min) / 2.0;
+  };
+})();
+
+console.log(stats);
+console.log(half(stats));
